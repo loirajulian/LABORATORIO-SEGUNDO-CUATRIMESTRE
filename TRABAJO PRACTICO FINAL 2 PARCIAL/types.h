@@ -1,6 +1,6 @@
 typedef struct {
 	int edad;
-	int anio;	
+	char nombre[50];	
 }Persona;
 
 typedef struct {

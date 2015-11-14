@@ -6,7 +6,7 @@
 
 int menu(int opcionMenu)
 {
-  printf("\t\tOPCIONES ARRAY LIST\n\n(Indique numero de la opcion que desea realizar)\n\n\n1-INGRESAR\n\n2-LISTAR\n\n3-ELIMINAR\n\n4-SALIR\n\n");
+  printf("\t\tOPCIONES ARRAY LIST\n\n(Indique numero de la opcion que desea realizar)\n\n\n1-INGRESAR\n\n2-LISTAR\n\n3-ELIMINAR POR INDICE\n\n4-BORRAR ARRAYLIST\n\n5-INGRESAR DATO EN INDICE ESPECIFICO\n\n6-SALIR\n\n");
   printf("\nSu opcion es: ");
   scanf("%d",&opcionMenu);
   fflush(stdin);
@@ -14,7 +14,7 @@ int menu(int opcionMenu)
   return opcionMenu;     
 }
 
-void nuevoNumero(ArrayList* self)
+void nuevaPersona(ArrayList* self)
 {
     char resp[2]; 
     Persona P;
@@ -24,9 +24,9 @@ void nuevoNumero(ArrayList* self)
 		element= (Persona*) malloc(sizeof(Persona));
 		printf("\nIndique edad: ");
 		scanf("%d",&P.edad);
-		printf("\nIndique anio: ");
-		scanf("%d",&P.anio);
-		*element = &P;
+		printf("\nIndique nombre: ");
+		scanf("%s",&P.nombre);
+		*element = P;
 
 		add(self,element);
 
@@ -91,5 +91,58 @@ void remover(ArrayList* self,int aux){
 	self->size--;	
 }
 
+void borrarArrayList(ArrayList* self)
+{
+		free(self);
+	
+		self = newArrayList();		
+}
+
+int al_isEmpty(ArrayList* self ){
+	
+	int i;
+    for(i=0;i<self->size;i++)
+    {
+     if(self->pElements[i]!=NULL)
+    {
+    return 0;                                                                                                                                                                   
+    }                          
+    }   
+    return 1;	
+}
+
+void set(ArrayList* self, int index, void*element)
+{
+	
+	self->pElements[index] = element;
+	
+}
+void ingresoPorIndice(ArrayList* self){
+	int aux;
+	int c;
+	Persona P;
+    Persona* element;
+	printf("\nIndices disponibles para ingresar dato: \n\n");
+	
+	for(c=0;c<self->size;c++){
+		printf("Indice %d\n",c);
+	}
+	
+	
+	printf("\nIngrese el indice donde desea ingresar el dato:");
+	scanf("%d",&aux);
+
+		element= (Persona*) malloc(sizeof(Persona));
+		printf("\nIndique edad: ");
+		scanf("%d",&P.edad);
+		printf("\nIndique nombre: ");
+		scanf("%s",&P.nombre);
+		*element = P;
+	
+	set(self,aux,element);
+	
+	printf("_______________________\n\n");
+	
+}
 
 

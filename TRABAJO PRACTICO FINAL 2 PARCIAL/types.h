@@ -1,5 +1,12 @@
 typedef struct {
+	int edad;
+	int anio;	
+}Persona;
+
+typedef struct {
 	int reservedsize;
 	int size;
-	void** pElements;
+	Persona** pElements;
 }ArrayList;
+
+

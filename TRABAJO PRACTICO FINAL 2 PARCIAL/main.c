@@ -47,7 +47,8 @@ while(opcionMenu!=1||2||3||4)
     printf("_______________________\n");
     
     	for(c=0;c<self->size;c++){
-		printf("Valor %d Indice %d\n",*(int*)(self->pElements[c]),c);
+		printf("Valor %d Indice %d\n",*(int*)(self->pElements->edad[c]),c);
+		printf("Valor %d Indice %d\n",*(int*)(self->pElements->anio[c]),c);
 
 	}
     printf("_______________________\n\n\n\n");

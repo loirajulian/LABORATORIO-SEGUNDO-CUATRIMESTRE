@@ -17,14 +17,16 @@ int menu(int opcionMenu)
 void nuevoNumero(ArrayList* self)
 {
     char resp[2]; 
-    int aux;
-    int* element;
-     
+    Persona P;
+    Persona* element;
+ 
 	do{
-		element= (int*) malloc(sizeof(int));
-		printf("\nIndique un numero: ");
-		scanf("%d",&aux);
-		*element = aux;
+		element= (Persona*) malloc(sizeof(Persona));
+		printf("\nIndique edad: ");
+		scanf("%d",&P.edad);
+		printf("\nIndique anio: ");
+		scanf("%d",&P.anio);
+		*element = &P;
 
 		add(self,element);
 
@@ -63,10 +65,10 @@ void* get(ArrayList* self,int index)
 	return self->pElements[index];
 }
 
-void resizeUp(ArrayList* self)
+int resizeUp(ArrayList* self)
 {
 	void* tmp_ptr;
-	tmp_ptr = (void*)realloc(self->pElements,(sizeof(void*))*(self->reservedsize+3));
+	tmp_ptr = realloc(self->pElements,sizeof(void*)*(self->reservedsize+3));
 
 	if (tmp_ptr == NULL) {
 		/* Error: tomar medidas necesarias */

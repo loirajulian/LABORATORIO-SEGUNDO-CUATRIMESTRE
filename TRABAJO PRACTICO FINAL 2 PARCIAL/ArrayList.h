@@ -6,6 +6,7 @@ int resizeUp(ArrayList* self);
 void add(ArrayList* self,void* element);
 void nuevaPersona(ArrayList* self);
 int al_len(ArrayList* self );
+int al_isEmpty(ArrayList* b );
 void borrarEspacioReservadoNoNecesario(ArrayList* self);
 void remover(ArrayList* self,int aux);
 void borrarArrayList(ArrayList* self);
@@ -27,6 +28,9 @@ void eliminarPop(ArrayList* self);
 int al_containsEnteros(ArrayList* self,Persona* element);
 int al_containsChar(ArrayList* self,Persona* element);
 void existeElemento(ArrayList* self);
+
+void hacerClondeArrayList(ArrayList* self);
+
 
 
 

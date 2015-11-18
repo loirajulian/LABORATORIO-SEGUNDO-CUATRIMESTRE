@@ -6,7 +6,7 @@
 
 int menu(int opcionMenu)
 {
-  printf("\t\t\tOPCIONES ARRAY LIST\n\n\t(Indique numero de la opcion que desea realizar)\n\n\n \20 1-INGRESAR\t\t\t\t\t \20 2-LISTAR\n\n \20 3-ELIMINAR POR INDICE\t\t\t \20 4-BORRAR ARRAYLIST\n\n \20 5-INGRESAR DATO EN INDICE ESPECIFICO\t\t \20 6-INDEX OF\n\n \20 7-TAMA\245O ARRAY LIST\t\t\t\t \20 8-PUSH\n\n \20 9-ELIMINACION POP\t\t\t\t \20 10-EXISTE ELEMENTO\n\n\n\n \20 11-SALIR\n\n");
+  printf("\t\t\tOPCIONES ARRAY LIST\n\n\t(Indique numero de la opcion que desea realizar)\n\n\n \20 1-INGRESAR\t\t\t\t\t \20 2-LISTAR\n\n \20 3-ELIMINAR POR INDICE\t\t\t \20 4-BORRAR ARRAYLIST\n\n \20 5-INGRESAR DATO EN INDICE ESPECIFICO\t\t \20 6-INDEX OF\n\n \20 7-TAMA\245O ARRAY LIST\t\t\t\t \20 8-PUSH\n\n \20 9-ELIMINACION POP\t\t\t\t \20 10-EXISTE ELEMENTO\n\n \20 11-CLONAR ARRAY\n\n\n\n \20 12-SALIR\n\n");
   printf("\n Su opcion es: ");
   scanf("%d",&opcionMenu);
   fflush(stdin);
@@ -111,12 +111,12 @@ void borrarArrayList(ArrayList* self)
 	self = newArrayList();		
 }
 
-int al_isEmpty(ArrayList* self ){
+int al_isEmpty(ArrayList* b ){
 	
 	int i;
-    for(i=0;i<self->size;i++)
+    for(i=0;i<b->size;i++)
     {
-     if(self->pElements[i]!=NULL)
+     if(b->pElements[i]!=NULL)
     {
     return 0;                                                                                                                                                                   
     }                          
@@ -566,7 +566,65 @@ void existeElemento(ArrayList* self){
 	    }	
 		
 }	
-	
+
+void hacerClondeArrayList(ArrayList* self){
+		int c;
+        ArrayList* newArrayListClone;
+        newArrayListClone=newArrayList();
+  
+        int opc,cant;
+        char rta='s';
+        FILE* bin;
+		 
+		printf("\n1-Mostrar datos clonados\n\n2-Clonar ArrayList\n\n");
+		scanf("%d",&opc);
+		fflush(stdin);
+		
+		if(opc==1){
+		
+		bin=fopen("archivo.txt","r");
+    
+    	if((bin=fopen("archivo.txt","r"))==NULL)
+   		{
+		   printf("no existe");
+    	}
+    	fread(&newArrayListClone,sizeof(ArrayList),1,bin);
+
+		printf("\nLOS VALORES CLONADOS SON\n\n");
+		for(c=0;c<newArrayListClone->size;c++){
+		printf("\nValor %d Indice %d\n",newArrayListClone->pElements[c]->edad,c);
+		printf("Valor %s Indice %d\n",newArrayListClone->pElements[c]->nombre,c);
+        }
+		fclose(bin);
+
+		}
+
+        if(opc==2){
+        if(al_isEmpty(self)==1){
+		printf("\nNo se ingresaron datos aun!!\n\n\nElija la opcion 1 del menu principal\n\n\n");		
+		}
+		else{			
+        newArrayListClone=self;
+        
+        printf("\nLOS VALORES CLONADOS SON\n\n");
+		for(c=0;c<newArrayListClone->size;c++){
+		printf("\nValor %d Indice %d\n",newArrayListClone->pElements[c]->edad,c);
+		printf("Valor %s Indice %d\n",newArrayListClone->pElements[c]->nombre,c);
+	    }
+
+     	if ((bin=fopen("archivo.txt","w"))==NULL)
+		{
+		printf("El archivo no puede ser abierto");
+		}
+
+		fwrite(&newArrayListClone,sizeof(ArrayList),1,bin);
+
+	    fclose(bin);
+		}		
+        }   
+    }
+
+
 	
 
 

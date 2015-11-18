@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 
 	//inicializo mi menu con sus distintas opciones
 	opcionMenu=menu(opcionMenu);
-while(opcionMenu!=1||2||3||4||5||6||7||8||9||10||11)
+while(opcionMenu!=1||2||3||4||5||6||7||8||9||10||11||12)
 {
    switch(opcionMenu)
    {
@@ -139,16 +139,30 @@ while(opcionMenu!=1||2||3||4||5||6||7||8||9||10||11)
 			system("PAUSE");
     		system("cls"); 
     		opcionMenu=menu(opcionMenu);        
-    		break; 					
+    		break; 	
 
     case 11:
+    		system("cls");
+    		printf("CLONAR ARRAYLIST\n");
+    		printf("_______________________\n");
+    	
+	hacerClondeArrayList(self);
+  
+			system("PAUSE");
+    		system("cls"); 
+    		opcionMenu=menu(opcionMenu);        
+    		break; 				
+			
+							
+
+    case 12:
     		system("PAUSE");	
     		return 0;
     		break;
   
     default:
     		system("cls");
-    		printf("\t\t\tOPCIONES ARRAY LIST\n\n\t(Indique numero de la opcion que desea realizar)\n\n\n \20 1-INGRESAR\t\t\t\t\t \20 2-LISTAR\n\n \20 3-ELIMINAR POR INDICE\t\t\t \20 4-BORRAR ARRAYLIST\n\n \20 5-INGRESAR DATO EN INDICE ESPECIFICO\t\t \20 6-INDEX OF\n\n \20 7-TAMA\245O ARRAY LIST\t\t\t\t \20 8-PUSH\n\n \20 9-ELIMINACION POP\t\t\t\t \20 10-EXISTE ELEMENTO\n\n\n\n \20 11-SALIR\n\n");
+    		printf("\t\t\tOPCIONES ARRAY LIST\n\n\t(Indique numero de la opcion que desea realizar)\n\n\n \20 1-INGRESAR\t\t\t\t\t \20 2-LISTAR\n\n \20 3-ELIMINAR POR INDICE\t\t\t \20 4-BORRAR ARRAYLIST\n\n \20 5-INGRESAR DATO EN INDICE ESPECIFICO\t\t \20 6-INDEX OF\n\n \20 7-TAMA\245O ARRAY LIST\t\t\t\t \20 8-PUSH\n\n \20 9-ELIMINACION POP\t\t\t\t \20 10-EXISTE ELEMENTO\n\n \20 11-CLONAR ARRAY\n\n\n\n \20 12-SALIR\n\n");
     		printf("\nIngreso invalido, no existe opcion con ese numero\n");
     		printf("\nSu opcion es: ");
     		scanf("%d",&opcionMenu);
